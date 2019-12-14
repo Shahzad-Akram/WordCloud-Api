@@ -1,0 +1,25 @@
+{
+  "name": "wordcloud",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^3.0.0",
+    "cors": "^2.8.5",
+    "count-words-occurrence": "^1.0.0",
+    "dotenv": "^8.2.0",
+    "esm": "^3.2.25",
+    "express": "^4.17.1",
+    "http-status": "^1.4.2",
+    "mongoose": "^5.8.1",
+    "morgan": "^1.9.1",
+    "nodemon": "^2.0.2"
+  }
+}
