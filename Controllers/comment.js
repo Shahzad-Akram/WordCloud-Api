@@ -79,7 +79,7 @@ const getWordCloudByVideoID = (req, res) => {
   Model.videoSchema
     .findOne(query)
     .then(video => {
-      res.json(video);
+      res.json(video.wordFrequency);
     })
     .catch(err => {
       res.json(err);
