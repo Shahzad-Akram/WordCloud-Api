@@ -3,7 +3,7 @@ import cors from 'cors';
 import status from 'http-status';
 import morgan from 'morgan';
 import dbConnection from './Connection/dbConnect';
-import videoRouter from './Routes/videoRouter';
+import resourceRouter from './Routes/resourceRouter';
 
 dbConnection();
 
@@ -17,7 +17,7 @@ app.get('/', (req, res) => {
   res.status(status.OK).send({ Message: 'Connected', status: status.OK });
 });
 
-app.use('/video', videoRouter);
+app.use('/resource', resourceRouter);
 
 app.get('*', (req, res) => {
   res.status(status.BAD_REQUEST).send({
@@ -26,7 +26,7 @@ app.get('*', (req, res) => {
   });
 });
 
-const port = process.env.PORT || 2000;
+const port = process.env.PORT || 3000;
 
 app.listen(port, () =>
   console.log(`App listening On port http://localhost:${port}`)

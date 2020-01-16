@@ -1,13 +1,13 @@
 import commentSchema from './comment';
-import videoSchema from './video';
+import resourceSchema from './resource';
 
 class Model {
   static get commentSchema() {
     return commentSchema;
   }
 
-  static get videoSchema() {
-    return videoSchema;
+  static get resourceSchema() {
+    return resourceSchema;
   }
 }
 

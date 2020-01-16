@@ -1,0 +1,125 @@
+{
+	"info": {
+		"_postman_id": "43d60e81-eb45-4168-ab74-b2867abcc616",
+		"name": "WordCloud",
+		"description": "Small application for generating wordclouds",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Comment",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"resourceId\":\"5e206cdf6fed065420e57855\",\n\t\"username\":\"omer\",\n\t\"email\":\"tada\",\n\t\"text\":\"ok bro i liked it\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:2000/resource/comment",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "2000",
+					"path": [
+						"resource",
+						"comment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Resource",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\":\"Omer Farooq\",\n\t\"caption\":\"People are cool bro\",\n\t\"url\":\"https://www.youtube.com/watch?v=U0Se2mIUEKU\",\n\t\"type\":\"image\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/resource/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"resource",
+						"create"
+					]
+				},
+				"description": "Create a Resource i.e. Image/Video."
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Resources",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/resource",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"resource"
+					]
+				},
+				"description": "Get All Resources."
+			},
+			"response": []
+		},
+		{
+			"name": "Get Single Resource",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/resource/5e206cdf6fed065420e57855",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"resource",
+						"5e206cdf6fed065420e57855"
+					]
+				},
+				"description": "Get Resource By Resource ID"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
