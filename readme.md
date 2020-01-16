@@ -5,5 +5,10 @@
 `http://wordcloud-api-node.herokuapp.com/`
   * [X] Add Video using link.
   * [X] Add Image using link.
-  * [ ] Get All Videos/Image Route.
-  * [ ] Get Single Video/Single Route.
+  * [X] Get All Videos/Image Route.
+  * [X] Get Single Video/Single Route.
+
+
+# Post man Docs File
+
+`WordCloud.postman`
