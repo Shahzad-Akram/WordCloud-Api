@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 
 const commentSchema = new mongoose.Schema({
-  videoId: String,
+  resourceId: String,
   username: String,
   email: String,
   text: String

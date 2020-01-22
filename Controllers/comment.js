@@ -1,13 +1,13 @@
 import Model from '../Models/model';
 import countWords from 'count-words-occurrence';
 
-const updateWordFrequency = (videoId, frequency) => {
+const updateWordFrequency = (_id, frequency) => {
   return new Promise((resolve, reject) => {
     const wordFrequency = [];
     wordFrequency.push(frequency);
-    const query = { videoId: videoId };
+    const query = { _id: _id };
     const updatedPayLoad = { $set: { wordFrequency } };
-    Model.videoSchema
+    Model.resourceSchema
       .findOneAndUpdate(query, updatedPayLoad, { upsert: true, new: true })
       .then(res => {
         resolve(res);
@@ -17,9 +17,9 @@ const updateWordFrequency = (videoId, frequency) => {
       });
   });
 };
-const getWordsFrequency = videoId => {
-  const query = { videoId };
 
+const getWordsFrequency = resourceId => {
+  const query = { resourceId };
   return new Promise((resolve, reject) => {
     Model.commentSchema
       .find(query)
@@ -37,7 +37,7 @@ const getWordsFrequency = videoId => {
           newWordCount.push({ text: entry[0], value: entry[1] });
         });
 
-        updateWordFrequency(videoId, newWordCount).then(res => {
+        updateWordFrequency(resourceId, newWordCount).then(res => {
           resolve(res);
         });
       })
@@ -48,10 +48,10 @@ const getWordsFrequency = videoId => {
 };
 
 const createComment = (req, res) => {
-  const { videoId, username, email, text } = req.body;
+  const { resourceId, username, email, text } = req.body;
 
   const comment = Model.commentSchema({
-    videoId,
+    resourceId,
     username,
     email,
     text
@@ -59,9 +59,9 @@ const createComment = (req, res) => {
   comment
     .save()
     .then(comment => {
-      getWordsFrequency(comment.videoId).then(word => {
+      getWordsFrequency(comment.resourceId).then(word => {
         res.json({
-          word
+          Message: 'Comment Added.'
         });
       });
     })
@@ -75,8 +75,8 @@ const createComment = (req, res) => {
 
 const getWordCloudByVideoID = (req, res) => {
   const { id } = req.params;
-  const query = { videoId: id };
-  Model.videoSchema
+  const query = { resourceId: id };
+  Model.resourceSchema
     .findOne(query)
     .then(video => {
       res.json(video.wordFrequency);
