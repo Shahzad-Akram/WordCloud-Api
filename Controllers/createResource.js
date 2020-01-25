@@ -5,13 +5,12 @@ const createResource = (req, res) => {
   const { name, caption, url, type } = req.body;
 
   const host = 'http://localhost:3000/';
-
-  const imageUrl = `${host}${req.file.path}`;
+  const resourceUrl = type == 'video' ? url : `${host}${req.file.path}`;
 
   const resource = Model.resourceSchema({
     name,
     caption,
-    url: imageUrl,
+    url: resourceUrl,
     type
   });
 
