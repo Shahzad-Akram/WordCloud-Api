@@ -55,8 +55,29 @@
 					}
 				],
 				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"name\":\"Omer Farooq\",\n\t\"caption\":\"People are cool bro\",\n\t\"url\":\"https://www.youtube.com/watch?v=U0Se2mIUEKU\",\n\t\"type\":\"image\"\n}",
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "bookimg",
+							"type": "file",
+							"src": "/home/omerfarooq/Desktop/unnamed.png"
+						},
+						{
+							"key": "name",
+							"value": "tada",
+							"type": "text"
+						},
+						{
+							"key": "caption",
+							"value": "i likes it",
+							"type": "text"
+						},
+						{
+							"key": "type",
+							"value": "image",
+							"type": "text"
+						}
+					],
 					"options": {
 						"raw": {
 							"language": "json"
