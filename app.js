@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import status from 'http-status';
 import morgan from 'morgan';
+import bodyParser from 'body-parser';
 import dbConnection from './Connection/dbConnect';
 import resourceRouter from './Routes/resourceRouter';
 
@@ -9,8 +10,11 @@ dbConnection();
 
 const app = express();
 
+app.use('/uploads', express.static('./uploads'));
+
 app.use(morgan('dev'));
 app.use(cors());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.get('/', (req, res) => {
