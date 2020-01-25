@@ -20,7 +20,7 @@ const resourceRouter = express.Router();
 
 resourceRouter.post(
   '/create',
-  upload.single('bookimg'),
+  upload.single('resourceImg'),
   resource.createResource
 );
 
