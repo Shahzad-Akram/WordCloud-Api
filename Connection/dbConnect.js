@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 const Connect = () => {
   mongoose
     .connect(
-      'DB_URI=mongodb+srv://digisol:digisol@cluster0-oudlk.mongodb.net/wordcloud-api?retryWrites=true&w=majority',
+      'DB_URI=mongodb+srv://digisol:digisol@cluster0-oudlk.mongodb.net/wordcloud-api?retryWrites=true&w=readPreference=secondary&ssl=true',
       () => {},
       { useNewUrlParser: true }
     )
