@@ -30,7 +30,7 @@ app.get('*', (req, res) => {
   });
 });
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8080;
 
 app.listen(port, () =>
   console.log(`App listening On port http://localhost:${port}`)
